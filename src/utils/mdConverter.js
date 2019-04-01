@@ -1,6 +1,7 @@
 import beautify from "js-beautify";
 import showdown from "showdown";
 import Typograf from "typograf";
+import showdownHighlight from "showdown-highlight";
 
 const tp = new Typograf({ locale: ["ru", "en-US"] });
 tp.disableRule("common/punctuation/hellip");
@@ -32,7 +33,7 @@ const tabs = () => ({
 const converter = new showdown.Converter({
   customizedHeaderId: true,
   disableForced4SpacesIndentedSublists: true,
-  extensions: [...bindings, hrefs, tabs],
+  extensions: [...bindings, hrefs, tabs, showdownHighlight],
   ghCompatibleHeaderId: true,
   headerLevelStart: 3,
   requireSpaceBeforeHeadingText: true,
