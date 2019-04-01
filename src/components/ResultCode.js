@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const TextArea = styled.textarea`
+const Textarea = styled.textarea`
   flex-grow: 1;
   resize: none;
 `;
 
 const ResultCode = ({ text }) => {
-  return <TextArea readOnly className="form-control" value={text} />;
+  return <Textarea readOnly className="form-control" value={text} />;
 };
 
 export default ResultCode;
