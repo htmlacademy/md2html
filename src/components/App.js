@@ -1,19 +1,29 @@
 import React, { Component } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import styled from "styled-components";
+import Editor from "../containers/Editor";
+import Header from "../containers/Header";
+import ResultWrap from "../containers/ResultWrap";
+
+const ApplicationWrap = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Row>
-          <Col>
-            <h1 className="text-center">Конвертер из MD в HTML</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col />
-        </Row>
-      </Container>
+      <ApplicationWrap className="container-fluid">
+        <Header />
+        <div className="row flex-grow-1 pb-3">
+          <div className="col-6">
+            <Editor />
+          </div>
+          <div className="col-6 d-flex">
+            <ResultWrap />
+          </div>
+        </div>
+      </ApplicationWrap>
     );
   }
 }
