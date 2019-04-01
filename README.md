@@ -1,6 +1,6 @@
 # md2html
 
-Адрес страницы: https://slavamilin.github.io/md2html/
+Адрес страницы: https://htmlacademy.github.io/md2html/
 
 Конвертирует md в html. На выходе готовая вёрстка прогоняется через типограф и бьютифаер.
 
