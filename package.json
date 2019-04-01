@@ -2,6 +2,7 @@
   "name": "md2html",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://slavamilin.github.io/md2html",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
@@ -68,7 +69,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -128,5 +131,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "2.0.1"
   }
 }
