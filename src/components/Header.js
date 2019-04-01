@@ -7,7 +7,7 @@ export default function Header({ currentTab, changeTab }) {
     <React.Fragment>
       <div className="row">
         <div className="col">
-          <h2 className="text-center">Конвертер из MD в HTML</h2>
+          <h2 className="text-center mt-3">Конвертер из MD в HTML</h2>
         </div>
       </div>
       <div className="row">
