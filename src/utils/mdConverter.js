@@ -25,7 +25,7 @@ const hrefs = () => ({
 });
 
 const tabs = () => ({
-  regex: /<p>(###[\w\-]+)<\/p>/g,
+  regex: /<p>(###[\w-]+)<\/p>/g,
   replace: (wn, tab) => tab,
   type: "output"
 });

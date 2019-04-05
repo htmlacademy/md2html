@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import ResultCode from "../components/ResultCode";
-import mdConverter from "../utils/mdConverter";
 import { Tabs } from "../constants";
 import ResultFrame from "../components/ResultFrame";
 
@@ -18,7 +17,6 @@ class ResultWrap extends Component {
 
   render() {
     let { text, currentTab } = this.props;
-    text = mdConverter(text);
     const CurrentElement = this.state[currentTab];
 
     return (
