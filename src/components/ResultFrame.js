@@ -1,13 +1,21 @@
 import React, { PureComponent } from "react";
+// eslint-disable-next-line
+import bootstrapRawStyles from "!!raw-loader!bootstrap/dist/css/bootstrap.min.css";
+// eslint-disable-next-line
+import hljsRawStyles from "!!raw-loader!highlight.js/styles/github.css";
 
-const bootstrapLink = `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">`;
-const hljsLink = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">`;
+const bootstrapStyle = document.createElement("style");
+const hljsStyles = document.createElement("style");
+bootstrapStyle.innerText = bootstrapRawStyles;
+hljsStyles.innerText = hljsRawStyles;
+
 class ResultFrame extends PureComponent {
   frame = React.createRef();
 
   componentDidMount() {
     const frame = this.frame.current.contentWindow.document;
-    frame.querySelector("head").innerHTML = `${bootstrapLink} ${hljsLink}`;
+    frame.querySelector("head").appendChild(bootstrapStyle);
+    frame.querySelector("head").appendChild(hljsStyles);
     frame.querySelector("body").innerHTML = this.props.text;
   }
 

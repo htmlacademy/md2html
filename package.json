@@ -133,6 +133,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "2.0.1"
+    "gh-pages": "2.0.1",
+    "highlight.js": "9.15.6",
+    "raw-loader": "2.0.0"
   }
 }
