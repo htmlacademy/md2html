@@ -1,7 +1,12 @@
 import React from "react";
 
 import { Form, Modal } from "react-bootstrap";
-import { ADD_HEADER_ID, CONVERT_HLJS, HEADER_LEVEL } from "../constants";
+import {
+  ADD_HEADER_ID,
+  ADD_ID_TO_LINK,
+  CONVERT_HLJS,
+  HEADER_LEVEL
+} from "../constants";
 
 const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
   const onSettingsChange = evt => {
@@ -37,6 +42,17 @@ const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
               id={ADD_HEADER_ID}
               value={settings.addHeaderId}
               checked={settings.addHeaderId}
+              onChange={onSettingsChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Check
+              type="checkbox"
+              label="Добавлять id к якорным ссылкам"
+              name={ADD_ID_TO_LINK}
+              id={ADD_ID_TO_LINK}
+              value={settings.addIdToLink}
+              checked={settings.addIdToLink}
               onChange={onSettingsChange}
             />
           </Form.Group>
