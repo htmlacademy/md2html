@@ -4,6 +4,7 @@ import mdConverter from "../utils/mdConverter";
 export const setMarkup = createAction("CHANGE_TEXT");
 export const changeTab = createAction("CHANGE_TAB");
 export const toggleShowSettings = createAction("TOGGLE_SHOW_SETTINGS");
+export const toggleHljsSettings = createAction("TOGGLE_HLJS_ACTION");
 
 export const changeText = text => dispatch =>
   dispatch(setMarkup(mdConverter(text)));
