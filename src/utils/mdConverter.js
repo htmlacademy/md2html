@@ -41,7 +41,7 @@ const mdConverter = (markdown, settings) => {
     customizedHeaderId: true,
     disableForced4SpacesIndentedSublists: true,
     extensions,
-    ghCompatibleHeaderId: true,
+    ghCompatibleHeaderId: settings.addHeaderId,
     headerLevelStart: settings.levelHeader,
     requireSpaceBeforeHeadingText: true,
     tables: true
