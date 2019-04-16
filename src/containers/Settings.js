@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
-import { toggleShowSettings } from "../actions";
+import { toggleShowSettings, toggleHljsSettings } from "../actions";
 import Settings from "../components/Settings";
 
 const mapStateToProps = state => ({
-  show: state.showSettings
+  show: state.showSettings,
+  convertHljs: state.convertHljs
 });
 const mapDispatchToProps = {
-  toggleShowSettings
+  toggleShowSettings,
+  toggleHljsSettings
 };
 
 export default connect(
