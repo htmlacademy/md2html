@@ -1,5 +1,5 @@
 import { createReducer } from "redux-starter-kit";
-import { changeTab, setMarkup } from "../actions";
+import { changeTab, setMarkup, toggleShowSettings } from "../actions";
 import { Tabs } from "../constants";
 
 const defaultText = `# Заголовок
@@ -28,7 +28,8 @@ const editorReducer = createReducer(
   {
     text: "",
     defaultText,
-    currentTab: Tabs.code
+    currentTab: Tabs.code,
+    showSettings: false
   },
   {
     [setMarkup]: (state, action) => {
@@ -37,6 +38,9 @@ const editorReducer = createReducer(
     },
     [changeTab]: (state, action) => {
       state.currentTab = action.payload;
+    },
+    [toggleShowSettings]: state => {
+      state.showSettings = !state.showSettings;
     }
   }
 );
