@@ -1,30 +1,28 @@
 import React from "react";
 
-import { Modal } from "react-bootstrap";
-import { CONVERT_HLJS } from "../constants";
+import { Form, Modal } from "react-bootstrap";
+import { CONVERT_HLJS, HEADER_LEVEL } from "../constants";
 
-const Settings = ({
-  show,
-  convertHljs,
-  changeSettings,
-  toggleShowSettings
-}) => {
+const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
   return (
     <Modal show={show} onHide={toggleShowSettings}>
       <Modal.Header closeButton>
         <Modal.Title>Настройки</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form>
+        <Form>
           <div className="form-group form-check">
             <input
               type="checkbox"
               className="form-check-input"
               id="convert-hljs"
-              checked={convertHljs}
+              checked={settings.convertHljs}
               name={CONVERT_HLJS}
-              value={convertHljs}
-              onChange={evt => changeSettings(evt.target.name)}
+              value={settings.convertHljs}
+              onChange={evt => {
+                const name = evt.target.name;
+                changeSettings({ name });
+              }}
             />
             <label className="form-check-label" htmlFor="convert-hljs">
               Конвертация hljs
