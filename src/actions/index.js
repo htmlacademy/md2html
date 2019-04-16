@@ -1,16 +1,20 @@
 import { createAction } from "redux-starter-kit";
 import mdConverter from "../utils/mdConverter";
-import { CONVERT_HLJS } from "../constants";
+import { CONVERT_HLJS, HEADER_LEVEL } from "../constants";
 
 export const setMarkup = createAction("CHANGE_TEXT");
 export const changeTab = createAction("CHANGE_TAB");
 export const toggleShowSettings = createAction("TOGGLE_SHOW_SETTINGS");
 export const convertHljs = createAction("CONVERT_HLJS");
+export const changeLevelTitle = createAction("CHANGE_LEVEL_TITLE");
 
-export const changeSettings = name => (dispatch, getState) => {
+export const changeSettings = ({ name, value }) => (dispatch, getState) => {
   switch (name) {
     case CONVERT_HLJS:
       dispatch(convertHljs());
+      break;
+    case HEADER_LEVEL:
+      dispatch(changeLevelTitle(value));
       break;
     default:
       break;
@@ -22,10 +26,8 @@ export const changeSettings = name => (dispatch, getState) => {
 };
 
 export const changeText = text => (dispatch, getState) => {
-  const { convertHljs } = getState();
-  const settings = {
-    convertHljs
-  };
+  const { settings } = getState();
+
   dispatch({ type: "SAVE_RAW_TEXT", payload: text });
   dispatch(setMarkup(mdConverter(text, settings)));
 };
