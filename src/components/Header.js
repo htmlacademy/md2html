@@ -33,7 +33,11 @@ export default function Header({ currentTab, changeTab, toggleShowSettings }) {
               </Button>
             ))}
           </ButtonGroup>
-          <StyledSettingsBtn className="btn" onClick={toggleShowSettings}>
+          <StyledSettingsBtn
+            className="btn"
+            type="button"
+            onClick={() => toggleShowSettings()}
+          >
             <MdSettings />
           </StyledSettingsBtn>
         </div>
