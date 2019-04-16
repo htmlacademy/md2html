@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Tabs } from "../constants";
+import { MdSettings } from "react-icons/md";
 
-export default function Header({ currentTab, changeTab }) {
+const StyledSettingsBtn = styled.button`
+  cursor: pointer;
+`;
+
+export default function Header({ currentTab, changeTab, toggleShowSettings }) {
   return (
     <React.Fragment>
       <div className="row">
@@ -11,7 +17,8 @@ export default function Header({ currentTab, changeTab }) {
         </div>
       </div>
       <div className="row">
-        <div className="col-6 d-flex flex-column mb-3 ml-auto">
+        <div className="col-6" />
+        <div className="col-6 d-flex flex-row mb-3 ml-auto">
           <ButtonGroup className="ml-auto">
             {Object.keys(Tabs).map(it => (
               <Button
@@ -26,6 +33,9 @@ export default function Header({ currentTab, changeTab }) {
               </Button>
             ))}
           </ButtonGroup>
+          <StyledSettingsBtn className="btn" onClick={toggleShowSettings}>
+            <MdSettings />
+          </StyledSettingsBtn>
         </div>
       </div>
     </React.Fragment>

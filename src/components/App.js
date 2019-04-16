@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Editor from "../containers/Editor";
 import Header from "../containers/Header";
 import ResultWrap from "../containers/ResultWrap";
+import Settings from "../containers/Settings";
 
 const ApplicationWrap = styled.div`
   height: 100vh;
@@ -23,6 +24,7 @@ class App extends Component {
             <ResultWrap />
           </div>
         </div>
+        <Settings />
       </ApplicationWrap>
     );
   }
