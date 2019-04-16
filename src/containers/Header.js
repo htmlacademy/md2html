@@ -1,4 +1,4 @@
-import { changeTab } from "../actions";
+import { changeTab, toggleShowSettings } from "../actions";
 import Header from "../components/Header";
 import { connect } from "react-redux";
 
@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  changeTab
+  changeTab,
+  toggleShowSettings
 };
 
 export default connect(
