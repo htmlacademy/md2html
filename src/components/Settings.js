@@ -1,11 +1,12 @@
 import React from "react";
 
 import { Modal } from "react-bootstrap";
+import { CONVERT_HLJS } from "../constants";
 
 const Settings = ({
   show,
   convertHljs,
-  toggleHljsSettings,
+  changeSettings,
   toggleShowSettings
 }) => {
   return (
@@ -21,7 +22,9 @@ const Settings = ({
               className="form-check-input"
               id="convert-hljs"
               checked={convertHljs}
-              onChange={() => toggleHljsSettings()}
+              name={CONVERT_HLJS}
+              value={convertHljs}
+              onChange={evt => changeSettings(evt.target.name)}
             />
             <label className="form-check-label" htmlFor="convert-hljs">
               Конвертация hljs
