@@ -28,7 +28,25 @@ const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
               Конвертация hljs
             </label>
           </div>
-        </form>
+          <Form.Group>
+            <Form.Label>Начинать с уровня заголовка:</Form.Label>
+            <Form.Control
+              as="select"
+              value={settings.levelHeader}
+              name={HEADER_LEVEL}
+              onChange={evt => {
+                const name = evt.target.name;
+                const value = evt.target.value;
+                changeSettings({ name, value });
+              }}
+            >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
       </Modal.Body>
     </Modal>
   );
