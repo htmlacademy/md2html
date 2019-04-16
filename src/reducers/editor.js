@@ -1,6 +1,7 @@
 import { createReducer } from "redux-starter-kit";
 import {
   addHeaderId,
+  addIdToLink,
   changeLevelTitle,
   changeTab,
   convertHljs,
@@ -19,7 +20,8 @@ const editorReducer = createReducer(
     settings: {
       convertHljs: false,
       levelHeader: 3,
-      addHeaderId: false
+      addHeaderId: false,
+      addIdToLink: true
     }
   },
   {
@@ -41,6 +43,9 @@ const editorReducer = createReducer(
     },
     [addHeaderId]: state => {
       state.settings.addHeaderId = !state.settings.addHeaderId;
+    },
+    [addIdToLink]: state => {
+      state.settings.addIdToLink = !state.settings.addIdToLink;
     },
     SAVE_RAW_TEXT: (state, action) => {
       state.rawText = action.payload;
