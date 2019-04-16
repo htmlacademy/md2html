@@ -30,17 +30,23 @@ const tabs = () => ({
   type: "output"
 });
 
-const converter = new showdown.Converter({
-  customizedHeaderId: true,
-  disableForced4SpacesIndentedSublists: true,
-  extensions: [...bindings, hrefs, tabs, showdownHighlight],
-  ghCompatibleHeaderId: true,
-  headerLevelStart: 3,
-  requireSpaceBeforeHeadingText: true,
-  tables: true
-});
+const mdConverter = (markdown, settings) => {
+  const extensions = [...bindings, hrefs, tabs];
 
-const mdConverter = markdown => {
+  if (settings.convertHljs) {
+    extensions.push(showdownHighlight);
+  }
+
+  const converter = new showdown.Converter({
+    customizedHeaderId: true,
+    disableForced4SpacesIndentedSublists: true,
+    extensions,
+    ghCompatibleHeaderId: true,
+    headerLevelStart: 3,
+    requireSpaceBeforeHeadingText: true,
+    tables: true
+  });
+
   const html = converter.makeHtml(markdown);
   const typographyHtml = tp.execute(html);
   return beautify.html(typographyHtml, { indent_size: 2 });
