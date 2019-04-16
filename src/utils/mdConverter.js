@@ -38,6 +38,13 @@ const mdConverter = (markdown, settings) => {
   }
 
   const converter = new showdown.Converter({
+    omitExtraWLInCodeBlocks: true,
+    rawHeaderId: true,
+    parseImgDimensions: true,
+    strikethrough: true,
+    tasklists: true,
+    emoji: true,
+    simpleLineBreaks: true,
     customizedHeaderId: true,
     disableForced4SpacesIndentedSublists: true,
     extensions,
