@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Form, Modal } from "react-bootstrap";
-import { CONVERT_HLJS, HEADER_LEVEL } from "../constants";
+import { ADD_HEADER_ID, CONVERT_HLJS, HEADER_LEVEL } from "../constants";
 
 const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
   const onSettingsChange = evt => {
@@ -28,10 +28,18 @@ const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
               checked={settings.convertHljs}
               onChange={onSettingsChange}
             />
-            <label className="form-check-label" htmlFor="convert-hljs">
-              Конвертация hljs
-            </label>
-          </div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Check
+              type="checkbox"
+              label="Добавлять якорь ко всем заголовкам"
+              name={ADD_HEADER_ID}
+              id={ADD_HEADER_ID}
+              value={settings.addHeaderId}
+              checked={settings.addHeaderId}
+              onChange={onSettingsChange}
+            />
+          </Form.Group>
           <Form.Group>
             <Form.Label>Начинать с уровня заголовка:</Form.Label>
             <Form.Control
