@@ -1,5 +1,10 @@
 import { createReducer } from "redux-starter-kit";
-import { changeTab, setMarkup, toggleShowSettings } from "../actions";
+import {
+  changeTab,
+  setMarkup,
+  toggleShowSettings,
+  toggleHljsSettings
+} from "../actions";
 import { Tabs } from "../constants";
 
 const defaultText = `# Заголовок
@@ -29,7 +34,8 @@ const editorReducer = createReducer(
     text: "",
     defaultText,
     currentTab: Tabs.code,
-    showSettings: false
+    showSettings: false,
+    convertHljs: false
   },
   {
     [setMarkup]: (state, action) => {
@@ -41,6 +47,9 @@ const editorReducer = createReducer(
     },
     [toggleShowSettings]: state => {
       state.showSettings = !state.showSettings;
+    },
+    [toggleHljsSettings]: state => {
+      state.convertHljs = !state.convertHljs;
     }
   }
 );
