@@ -4,7 +4,7 @@ import Settings from "../components/Settings";
 
 const mapStateToProps = state => ({
   show: state.showSettings,
-  convertHljs: state.convertHljs
+  settings: state.settings
 });
 const mapDispatchToProps = {
   toggleShowSettings,
