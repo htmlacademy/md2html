@@ -42,7 +42,7 @@ const mdConverter = (markdown, settings) => {
     disableForced4SpacesIndentedSublists: true,
     extensions,
     ghCompatibleHeaderId: true,
-    headerLevelStart: 3,
+    headerLevelStart: settings.levelHeader,
     requireSpaceBeforeHeadingText: true,
     tables: true
   });
