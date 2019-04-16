@@ -4,6 +4,13 @@ import { Form, Modal } from "react-bootstrap";
 import { CONVERT_HLJS, HEADER_LEVEL } from "../constants";
 
 const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
+  const onSettingsChange = evt => {
+    const name = evt.target.name;
+    const value = evt.target.value;
+
+    changeSettings({ name, value });
+  };
+
   return (
     <Modal show={show} onHide={toggleShowSettings}>
       <Modal.Header closeButton>
@@ -11,18 +18,15 @@ const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <div className="form-group form-check">
-            <input
+          <Form.Group>
+            <Form.Check
               type="checkbox"
-              className="form-check-input"
-              id="convert-hljs"
-              checked={settings.convertHljs}
+              label="Добавить hljs"
               name={CONVERT_HLJS}
+              id={CONVERT_HLJS}
               value={settings.convertHljs}
-              onChange={evt => {
-                const name = evt.target.name;
-                changeSettings({ name });
-              }}
+              checked={settings.convertHljs}
+              onChange={onSettingsChange}
             />
             <label className="form-check-label" htmlFor="convert-hljs">
               Конвертация hljs
@@ -34,11 +38,7 @@ const Settings = ({ show, settings, changeSettings, toggleShowSettings }) => {
               as="select"
               value={settings.levelHeader}
               name={HEADER_LEVEL}
-              onChange={evt => {
-                const name = evt.target.name;
-                const value = evt.target.value;
-                changeSettings({ name, value });
-              }}
+              onChange={onSettingsChange}
             >
               <option>1</option>
               <option>2</option>
