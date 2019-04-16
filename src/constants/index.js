@@ -5,6 +5,7 @@ export const Tabs = {
 export const CONVERT_HLJS = "CONVERT_HLJS";
 export const HEADER_LEVEL = "HEADER_LEVEL";
 export const ADD_HEADER_ID = "ADD_HEADER_ID";
+export const ADD_ID_TO_LINK = "ADD_ID_TO_LINK";
 
 export const defaultText = `# Заголовок
 
