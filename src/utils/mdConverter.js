@@ -31,7 +31,11 @@ const tabs = () => ({
 });
 
 const mdConverter = (markdown, settings) => {
-  const extensions = [...bindings, hrefs, tabs];
+  const extensions = [...bindings, tabs];
+
+  if (settings.addIdToLink) {
+    extensions.push(hrefs);
+  }
 
   if (settings.convertHljs) {
     extensions.push(showdownHighlight);
