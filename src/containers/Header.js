@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
-  currentTab: state.currentTab
+  currentTab: state.currentTab,
+  text: state.text
 });
 
 const mapDispatchToProps = {
