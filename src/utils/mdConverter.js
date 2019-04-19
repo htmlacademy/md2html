@@ -7,7 +7,7 @@ const tp = new Typograf({ locale: ["ru", "en-US"] });
 tp.disableRule("common/punctuation/hellip");
 
 const classMap = {
-  table: "table table-striped table-bordered"
+  table: "table table--striped table--bordered"
 };
 
 const bindings = Object.keys(classMap).map(key => ({
