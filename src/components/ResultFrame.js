@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 // eslint-disable-next-line
-import bootstrapRawStyles from "!!raw-loader!bootstrap/dist/css/bootstrap.min.css";
+import bootstrapRawStyles from "!!raw-loader!../constants/style.css";
 // eslint-disable-next-line
 import hljsRawStyles from "!!raw-loader!highlight.js/styles/github.css";
 
