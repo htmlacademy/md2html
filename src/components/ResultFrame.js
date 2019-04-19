@@ -9,11 +9,14 @@ const hljsStyles = document.createElement("style");
 bootstrapStyle.innerText = bootstrapRawStyles;
 hljsStyles.innerText = hljsRawStyles;
 
+const font = `<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">`;
+
 class ResultFrame extends PureComponent {
   frame = React.createRef();
 
   componentDidMount() {
     const frame = this.frame.current.contentWindow.document;
+    frame.querySelector("head").innerHTML = font;
     frame.querySelector("head").appendChild(bootstrapStyle);
     frame.querySelector("head").appendChild(hljsStyles);
     frame.querySelector("body").innerHTML = this.props.text;
