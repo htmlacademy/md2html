@@ -3,12 +3,34 @@ import styled from "styled-components";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Tabs } from "../constants";
 import { MdSettings } from "react-icons/md";
+import { GoClippy } from "react-icons/go";
 
-const StyledSettingsBtn = styled.button`
+const SettingsBtn = styled.button`
   cursor: pointer;
 `;
 
-export default function Header({ currentTab, changeTab, toggleShowSettings }) {
+const CopyBtn = styled.button`
+  cursor: pointer;
+`;
+
+export default function Header({
+  currentTab,
+  changeTab,
+  toggleShowSettings,
+  text
+}) {
+  const onCopyClick = () => {
+    const el = document.createElement("textarea");
+    el.value = text;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+  };
+
   return (
     <React.Fragment>
       <div className="row">
@@ -33,13 +55,18 @@ export default function Header({ currentTab, changeTab, toggleShowSettings }) {
               </Button>
             ))}
           </ButtonGroup>
-          <StyledSettingsBtn
+
+          <CopyBtn className="btn" type="btn" onClick={onCopyClick}>
+            <GoClippy size="1.5em" />
+          </CopyBtn>
+
+          <SettingsBtn
             className="btn"
             type="button"
             onClick={() => toggleShowSettings()}
           >
             <MdSettings />
-          </StyledSettingsBtn>
+          </SettingsBtn>
         </div>
       </div>
     </React.Fragment>
