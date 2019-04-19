@@ -15,7 +15,7 @@ const editorReducer = createReducer(
     text: "",
     rawText: "",
     defaultText,
-    currentTab: Tabs.code,
+    currentTab: Tabs.frame,
     showSettings: false,
     settings: {
       convertHljs: false,
