@@ -1,22 +1,16 @@
 import React, { PureComponent } from "react";
-// eslint-disable-next-line
-import bootstrapRawStyles from "!!raw-loader!../constants/style.css";
-// eslint-disable-next-line
-import hljsRawStyles from "!!raw-loader!highlight.js/styles/github.css";
 
-const node = document.createElement("style");
-node.appendChild(document.createTextNode(bootstrapRawStyles));
-node.appendChild(document.createTextNode(hljsRawStyles));
-
-const font = `<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">`;
+const styles = `(
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+)`;
 
 class ResultFrame extends PureComponent {
   frame = React.createRef();
 
   componentDidMount() {
     const frame = this.frame.current.contentWindow.document;
-    frame.querySelector("head").innerHTML = font;
-    frame.head.appendChild(node);
+    frame.querySelector("head").innerHTML = styles;
     frame.querySelector("body").innerHTML = this.props.text;
   }
 
