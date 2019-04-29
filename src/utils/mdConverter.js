@@ -43,7 +43,6 @@ const mdConverter = (markdown, settings) => {
 
   const converter = new showdown.Converter({
     omitExtraWLInCodeBlocks: true,
-    rawHeaderId: true,
     parseImgDimensions: true,
     strikethrough: true,
     tasklists: true,
@@ -51,11 +50,12 @@ const mdConverter = (markdown, settings) => {
     simpleLineBreaks: true,
     customizedHeaderId: true,
     disableForced4SpacesIndentedSublists: true,
-    extensions,
     ghCompatibleHeaderId: settings.addHeaderId,
+    noHeaderId: !settings.addHeaderId,
     headerLevelStart: settings.levelHeader,
     requireSpaceBeforeHeadingText: true,
-    tables: true
+    tables: true,
+    extensions
   });
 
   const html = converter.makeHtml(markdown);
