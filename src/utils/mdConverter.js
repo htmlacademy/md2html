@@ -2,6 +2,7 @@ import beautify from "js-beautify";
 import showdown from "showdown";
 import Typograf from "typograf";
 import showdownHighlight from "showdown-highlight";
+import {transliterate as tr} from "transliteration/dist/node/src/node";
 
 const tp = new Typograf({ locale: ["ru", "en-US"] });
 tp.disableRule("common/punctuation/hellip");
@@ -24,6 +25,14 @@ const hrefs = () => ({
   type: "output"
 });
 
+const translitId = () => ({
+  regex: /id="(.+)"/g,
+  replace: (wn, href) => {
+    return `id="${tr(href)}">`;
+  },
+  type: "output"
+});
+
 const tabs = () => ({
   regex: /<p>(###[\w-]+)<\/p>/g,
   replace: (wn, tab) => tab,
@@ -31,7 +40,7 @@ const tabs = () => ({
 });
 
 const mdConverter = (markdown, settings) => {
-  const extensions = [...bindings, tabs];
+  const extensions = [...bindings, tabs, translitId];
 
   if (settings.addIdToLink) {
     extensions.push(hrefs);

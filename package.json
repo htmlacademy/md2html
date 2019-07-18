@@ -60,6 +60,7 @@
     "style-loader": "0.23.1",
     "styled-components": "^4.2.0",
     "terser-webpack-plugin": "1.2.2",
+    "transliteration": "2.1.4",
     "typograf": "^6.8.1",
     "url-loader": "1.1.2",
     "webpack": "4.28.3",
